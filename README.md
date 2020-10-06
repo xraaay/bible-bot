@@ -2,6 +2,9 @@
 
 ## Getting Set up
 
+- Setting up IDE
+  - [go here](https://code.visualstudio.com/)
+  - Install VSCode for Windows probably
 - Installing Node
   - [go here](https://nodejs.org/en/)
   - install Node LTS version
