@@ -35,10 +35,10 @@
   - Now your changes should be in GitHub, you can check from the branches tab
 - If you're finished with your feature, make a pull request and somebody will review it and merge
 
-# *pls dont push into master*
-# *pls dont push into master*
-# *pls dont push into master*
-# *pls dont push into master*
+# **pls dont push into master**
+# **pls dont push into master**
+# **pls dont push into master**
+# **pls dont push into master**
 
 ## Setting up commands
 
@@ -50,9 +50,9 @@
   - Basic format is 
     ```javascript
         module.exports = {
-          name: 'help',
+          name: 'name-of-command',
           description: '',
-          args: false,
+          args: false,  // set this to true if you want to require arguments passed into like b!help {command}
           execute(message, args) {
              {your code here}
           }
