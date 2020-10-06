@@ -6,6 +6,7 @@
   - [go here](https://nodejs.org/en/)
   - install Node LTS version
 - Cloning the repo
+  - open a terminal in a folder you want to clone the repo into
   - run ```git clone https://github.com/xraaay/bible-bot.git``` in folder of your choosing
   - make sure you get the .env from somebody and put it in the root directory
 - Installing packages 
