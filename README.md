@@ -67,6 +67,10 @@
     - should look something like this https://discord.com/oauth2/authorize?client_id={your-token-here}&scope=bot&permissions={permissions}
     - you can default to 8 permissions if you want to give the bot admin power, but this could be dangerous so make sure you know what youre doing or do this on a throwaway server
 
+### Resources
+- We're using discord.js [here is the guide/documentation](https://discordjs.guide/)
+
+
 ##
 
 If you have any questions just DM me or sumin (PullOutKing)
