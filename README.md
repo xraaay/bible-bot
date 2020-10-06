@@ -7,7 +7,7 @@
   - Install VSCode for Windows probably
 - Installing Node
   - [go here](https://nodejs.org/en/)
-  - install Node LTS version
+  - Install Node LTS version
 - Installing Git Bash
   - [go here](https://git-scm.com/downloads)
   - You can just default everything and click next
@@ -30,11 +30,14 @@
   - For example: /c/repos/biblebot (test-branch)
 - To save your changes onto the repo
   - First you want to add all the files you changed with ```git add .```
-  - Next you want to commit the changes with ```git commit -m "add a message here saying what you did"
+  - Next you want to commit the changes with ```git commit -m "add a message here saying what you did"```
   - Last you want to push those changes onto GitHub with ```git push origin head``` 
   - Now your changes should be in GitHub, you can check from the branches tab
 - If you're finished with your feature, make a pull request and somebody will review it and merge
 
+# *pls dont push into master*
+# *pls dont push into master*
+# *pls dont push into master*
 # *pls dont push into master*
 
 ## Setting up commands
@@ -44,6 +47,17 @@
   - Create a file in the commands folder
   - The name of the file will be the name of the command
     - For example: help.js = b! help
+  - Basic format is 
+    ```javascript
+        module.exports = {
+          name: 'help',
+          description: '',
+          args: false,
+          execute(message, args) {
+             {your code here}
+          }
+        };
+    ```
 
 ### Running your own bot
 - Follow this guide [here](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
