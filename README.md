@@ -2,6 +2,9 @@
 
 ## Getting Set up
 
+- Setting up IDE
+  - [go here](https://code.visualstudio.com/)
+  - Install VSCode for Windows probably
 - Installing Node
   - [go here](https://nodejs.org/en/)
   - install Node LTS version
@@ -19,6 +22,19 @@
 - Starting the bot
   - run ```nodemon index.js``` inside of the root directory
 - Youre set up!
+
+## Creating your own branch
+- **DO NOT** work in the master branch
+- To create a new branch run ```git checkout -b "branch-name"``` but replace the branch-name with a short description on what feature youre going to add
+- Once you do that make sure you're actually in another branch
+  - For example: /c/repos/biblebot (test-branch)
+- To save your changes onto the repo
+  - First you want to add all the files you changed with ```git add .```
+  - Next you want to commit the changes with ```git commit -m "add a message here saying what you did"
+  - Last you want to push those changes onto GitHub with ```git push origin head``` 
+  - Now your changes should be in GitHub, you can check from the branches tab
+- If you're finished with your feature, make a pull request and somebody will review it and merge
+- *pls dont push into master*
 
 ## Setting up commands
 
