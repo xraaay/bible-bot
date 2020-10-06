@@ -17,7 +17,13 @@
   - run ```nodemon index.js``` inside of the root directory
 - Youre set up!
 
-## 
+## Setting up commands
+
+- Try to follow the format of the file in ./commands/help.js
+- To make a command
+  - Create a file in the commands folder
+  - The name of the file will be the name of the command
+    - For example: help.js = b! help
 
 ### Running your own bot
 - Follow this guide [here](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
