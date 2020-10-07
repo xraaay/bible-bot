@@ -16,7 +16,7 @@ module.exports = {
 			const data = [];
 			const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 			if (!command) {
-				return message.reply('that\'s not a valid command');
+				return message.reply("that's not a valid command");
 			}
 
 			if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
@@ -27,3 +27,4 @@ module.exports = {
 		}
 	},
 };
+
