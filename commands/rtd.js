@@ -1,4 +1,3 @@
-/* eslint-disable no-inline-comments */
 module.exports = {
 	name: 'rtd', // name of the command
 	description: 'Gives a random number between 1 and 6', // description, this will show up when they run help
