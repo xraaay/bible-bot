@@ -12,7 +12,7 @@ module.exports = {
 		let total; // basically if you did it inside of the loop you would keep rewriting the value instead of adding
 		for(let i = 0; i <= rolls; i++) { // creating a loop to run as many times as the argument passed
 			const randomNumber = Math.floor(Math.random() * 6) + 1; // generate a random number between 1-6
-			if(!string) { // if string is falsey, that means this is the first roll // can also do other ways
+			if(!string) { // if string is falsey, that means this is the first roll // theres also other ways to check
 				string = randomNumber; // setting string and total to a value since empty
 				total = randomNumber;
 			}	else {
