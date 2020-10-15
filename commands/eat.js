@@ -9,41 +9,48 @@ module.exports = {
 	description: '',
 	args: false,
 	execute(message, args) {
-		// TODO: use roles to determine location
-		// TODO: use reactions to pick? or response
-		// const url = 'https://api.yelp.com/v3/businesses/search?term=taco';
-
-		// console.log(yelp_token);
-		// message.reply();
+		// TODO: use roles to determine location?
+		// TODO: use reactions to pick? or response?
 		client.search({
 			term: args[0],
 			location: args[1],
 		})
 			.then(response => {
-				console.log(args);
-				// console.log(response.jsonBody);
-				// const arr = [];
-				// for (let i = 0; i < 10; i++) {
-				// 	arr.push(response.jsonBody.businesses[i].name);
-				// }
 				const business = response.jsonBody.businesses[0];
+				const fields = [];
+				if(business.categories[0]){
+					fields.push({ name: 'Categories', value: business.categories.map(item => item.title), inline: true })
+				}
+				if(business.price){
+					fields.push({ name: 'Price', value: business.price, inline: true })
+				}
+				if(business.rating){
+					fields.push({ name: 'Rating', value: business.rating, inline: true })
+				}
+				if(business.display_phone){
+					fields.push({ name: 'Phone', value: business.display_phone })
+				}
+				if(business.location.display_address[0] && business.location.display_address[1]){
+					fields.push({ name: 'Address', value: `${business.location.display_address[0]}, ${business.location.display_address[1]}`})
+				}
 				const embed = new Discord.MessageEmbed()
 					.setColor('#0099ff')
 					.setTitle(business.name)
 					.setURL(business.url)
-					.addFields(
-						{ name: 'Categories', value: business.categories.map(item => item.title) },
-						{ name: 'Price', value: business.price },
-						{ name: 'Address', value: `${business.location.display_address[0]}, ${business.location.display_address[1]}` },
-						{ name: 'Phone', value: business.display_phone, inline: true },
-						{ name: 'Rating', value: business.rating },
-					)
+					.addFields(fields)
 					.setImage(business.image_url)
 					.setTimestamp();
 				message.reply(embed);
 			})
 			.catch(e => {
-				console.log(e);
+				console.log(e)
+				try {
+					let errObj = JSON.parse(e.response.body)
+					message.reply(`${errObj.error.code} // ${errObj.error.field}: ${errObj.error.description}`)
+				}
+				catch(ex) {
+					message.reply('Something went wrong')
+				}
 			});
 	},
 };
