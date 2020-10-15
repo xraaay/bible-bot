@@ -11,9 +11,11 @@ module.exports = {
 	execute(message, args) {
 		// TODO: use roles to determine location?
 		// TODO: use reactions to pick? or response?
+		const term = args.shift();
+		const location = args.join(' ');
 		client.search({
-			term: args[0],
-			location: args[1],
+			term: term,
+			location: location,
 		})
 			.then(response => {
 				const random = Math.floor(Math.random() * response.jsonBody.businesses.length) + 1;
