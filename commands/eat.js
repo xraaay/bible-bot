@@ -16,22 +16,24 @@ module.exports = {
 			location: args[1],
 		})
 			.then(response => {
-				const business = response.jsonBody.businesses[0];
+				const random = Math.floor(Math.random() * response.jsonBody.businesses.length) + 1;
+				const business = response.jsonBody.businesses[random];
 				const fields = [];
-				if(business.categories[0]){
-					fields.push({ name: 'Categories', value: business.categories.map(item => item.title), inline: true })
+				if(business.categories && business.categories[0]) {
+					fields.push({ name: 'Categories', value: business.categories.map(item => item.title), inline: true });
 				}
-				if(business.price){
-					fields.push({ name: 'Price', value: business.price, inline: true })
+				if(business.price) {
+					fields.push({ name: 'Price', value: business.price, inline: true });
 				}
-				if(business.rating){
-					fields.push({ name: 'Rating', value: business.rating, inline: true })
+				if(business.rating) {
+					fields.push({ name: 'Rating', value: business.rating, inline: true });
 				}
-				if(business.display_phone){
-					fields.push({ name: 'Phone', value: business.display_phone })
+				if(business.display_phone) {
+					fields.push({ name: 'Phone', value: business.display_phone });
 				}
-				if(business.location.display_address[0] && business.location.display_address[1]){
-					fields.push({ name: 'Address', value: `${business.location.display_address[0]}, ${business.location.display_address[1]}`})
+				if(business.location.display_address[0] && business.location.display_address[1]) {
+					console.log(business.location.display_address);
+					fields.push({ name: 'Address', value: business.location.display_address.join(', ') });
 				}
 				const embed = new Discord.MessageEmbed()
 					.setColor('#0099ff')
@@ -43,13 +45,13 @@ module.exports = {
 				message.reply(embed);
 			})
 			.catch(e => {
-				console.log(e)
+				console.log(e);
 				try {
-					let errObj = JSON.parse(e.response.body)
-					message.reply(`${errObj.error.code} // ${errObj.error.field}: ${errObj.error.description}`)
+					const errObj = JSON.parse(e.response.body);
+					message.reply(`${errObj.error.code} // ${errObj.error.field}: ${errObj.error.description}`);
 				}
 				catch(ex) {
-					message.reply('Something went wrong')
+					message.reply('Something went wrong');
 				}
 			});
 	},
