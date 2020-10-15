@@ -32,7 +32,6 @@ module.exports = {
 					fields.push({ name: 'Phone', value: business.display_phone });
 				}
 				if(business.location.display_address[0] && business.location.display_address[1]) {
-					console.log(business.location.display_address);
 					fields.push({ name: 'Address', value: business.location.display_address.join(', ') });
 				}
 				const embed = new Discord.MessageEmbed()
